@@ -1,10 +1,10 @@
 {
-    "author": "MakeAwesomeHappen",
+    "author": "Loekman",
     "dependencies": {},
     "keywords": [
         "pebble-app"
     ],
-    "name": "watchface-tutorial",
+    "name": "stardew-valley",
     "pebble": {
         "displayName": "Tutorial Watchface",
         "enableMultiJS": true,
