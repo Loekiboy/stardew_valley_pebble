@@ -4,10 +4,13 @@ static Window *s_main_window;
 static TextLayer *s_time_layer;
 static TextLayer *s_date_layer;
 
-static GBitmap *s_background_bitmap;
-static BitmapLayer *s_background_layer;
+static GBitmap *s_bg_bitmap;
+static BitmapLayer *s_bg_layer;
 
-// Custom fonts declaratie
+static GBitmap *s_fg_bitmap;
+static BitmapLayer *s_fg_layer;
+
+// Custom fonts
 static GFont s_time_font;
 static GFont s_date_font;
 
@@ -20,7 +23,7 @@ static void update_time() {
   text_layer_set_text(s_time_layer, s_time_buffer);
 
   static char s_date_buffer[16];
-  strftime(s_date_buffer, sizeof(s_date_buffer), "%a %b %d", tick_time);
+  strftime(s_date_buffer, sizeof(s_date_buffer), "%a. %d", tick_time);
   text_layer_set_text(s_date_layer, s_date_buffer);
 }
 
@@ -32,37 +35,44 @@ static void main_window_load(Window *window) {
   Layer *window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_bounds(window_layer);
 
-  s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BACKGROUND);
-  s_background_layer = bitmap_layer_create(bounds);
-  bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
+  s_bg_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BACKGROUND);
+  s_bg_layer = bitmap_layer_create(bounds);
+  bitmap_layer_set_bitmap(s_bg_layer, s_bg_bitmap);
+  layer_add_child(window_layer, bitmap_layer_get_layer(s_bg_layer));
+
+  s_fg_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_FOREGROUND);
   
-  layer_add_child(window_layer, bitmap_layer_get_layer(s_background_layer));
+  int fg_w = 180;
+  int fg_h = 148;
+  
+  int fg_x = (bounds.size.w / 2) - (fg_w / 2); 
+  int fg_y = 40;
 
-  // Load custom fonts
-  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SV_56));
-  s_date_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SV_24));
+  s_fg_layer = bitmap_layer_create(GRect(fg_x, fg_y, fg_w, fg_h)); 
+  bitmap_layer_set_bitmap(s_fg_layer, s_fg_bitmap);
+  bitmap_layer_set_compositing_mode(s_fg_layer, GCompOpSet); 
+  layer_add_child(window_layer, bitmap_layer_get_layer(s_fg_layer));
 
-  // Center the time + date block vertically
+  s_time_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SV_28));
+  s_date_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_SV_28));
+
   int date_height = 30;
-  int block_height = 56 + date_height;
-  int time_y = (bounds.size.h / 2) - (block_height / 2) - 10;
-  int date_y = time_y + 56;
 
-  // Create the time TextLayer
-  s_time_layer = text_layer_create(GRect(0, time_y, bounds.size.w, 60));
+  // Time TextLayer
+  s_time_layer = text_layer_create(GRect(28, 100, bounds.size.w, 60));
   text_layer_set_background_color(s_time_layer, GColorClear);
-  text_layer_set_text_color(s_time_layer, GColorWhite);
+  text_layer_set_text_color(s_time_layer, GColorBlack);
   text_layer_set_font(s_time_layer, s_time_font);
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
 
-  // Create the date TextLayer
-  s_date_layer = text_layer_create(GRect(0, date_y, bounds.size.w, date_height));
+
+  // Date TextLayer
+  s_date_layer = text_layer_create(GRect(28, 45, bounds.size.w, date_height));
   text_layer_set_background_color(s_date_layer, GColorClear);
-  text_layer_set_text_color(s_date_layer, GColorWhite);
+  text_layer_set_text_color(s_date_layer, GColorBlack);
   text_layer_set_font(s_date_layer, s_date_font);
   text_layer_set_text_alignment(s_date_layer, GTextAlignmentCenter);
 
-  // Add tekst layers to the Window
   layer_add_child(window_layer, text_layer_get_layer(s_time_layer));
   layer_add_child(window_layer, text_layer_get_layer(s_date_layer));
 }
@@ -72,8 +82,11 @@ static void main_window_unload(Window *window) {
   text_layer_destroy(s_time_layer);
   text_layer_destroy(s_date_layer);
 
-  bitmap_layer_destroy(s_background_layer);
-  gbitmap_destroy(s_background_bitmap);
+  bitmap_layer_destroy(s_fg_layer);
+  gbitmap_destroy(s_fg_bitmap);
+
+  bitmap_layer_destroy(s_bg_layer);
+  gbitmap_destroy(s_bg_bitmap);
 
   // Unload custom fonts
   fonts_unload_custom_font(s_time_font);

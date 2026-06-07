@@ -14,19 +14,19 @@
             "media": [
                 {
                     "file": "fonts/svthin.ttf",
-                    "name": "FONT_SV_56",
-                    "targetPlatforms": null,
-                    "type": "font"
-                },
-                {
-                    "file": "fonts/svthin.ttf",
-                    "name": "FONT_SV_24",
+                    "name": "FONT_SV_28",
                     "targetPlatforms": null,
                     "type": "font"
                 },
                 {
                     "file": "images/background.png",
                     "name": "IMAGE_BACKGROUND",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/clock.png",
+                    "name": "IMAGE_FOREGROUND",
                     "targetPlatforms": null,
                     "type": "bitmap"
                 }
