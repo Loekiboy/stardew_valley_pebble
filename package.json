@@ -29,6 +29,12 @@
                     "name": "IMAGE_FOREGROUND",
                     "targetPlatforms": null,
                     "type": "bitmap"
+                },
+                {
+                    "file": "images/dial.png",
+                    "name": "IMAGE_DIAL",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
                 }
             ]
         },
