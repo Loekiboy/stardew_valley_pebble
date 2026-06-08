@@ -35,6 +35,30 @@
                     "name": "IMAGE_DIAL",
                     "targetPlatforms": null,
                     "type": "bitmap"
+                },
+                {
+                    "file": "images/winter.png",
+                    "name": "IMAGE_SEASON_WINTER",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/fall.png",
+                    "name": "IMAGE_SEASON_FALL",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/summer.png",
+                    "name": "IMAGE_SEASON_SUMMER",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/spring.png",
+                    "name": "IMAGE_SEASON_SPRING",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
                 }
             ]
         },
