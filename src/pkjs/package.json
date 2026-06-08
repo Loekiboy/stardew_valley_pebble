@@ -1,0 +1,21 @@
+{
+  "name": "stardew-valley-watchface",
+  "author": "Loek Oerlemans",
+  "version": "1.0.0",
+  "keywords": ["pebble-app"],
+  "dependencies": {},
+  "pebble": {
+    "displayName": "Stardew Valley",
+    "uuid": "a7e1f3b2-c849-41b2-9ed8-f6a312bc55d4",
+    "sdkVersion": "3",
+    "targetPlatforms": [
+      "emery"
+    ],
+    "watchapp": {
+      "watchface": true
+    },
+    "appKeys": {
+      "WEATHER_KEY": 0
+    }
+  }
+}

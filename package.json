@@ -1,12 +1,16 @@
 {
-    "author": "MakeAwesomeHappen",
+    "author": "Loekman",
     "dependencies": {},
     "keywords": [
         "pebble-app"
     ],
-    "name": "watchface-tutorial",
+    "name": "stardew-valley",
     "pebble": {
-        "displayName": "Tutorial Watchface",
+        "capabilities": [
+            "location",
+            "health"
+        ],
+        "displayName": "Stardew Valley Watchface",
         "enableMultiJS": true,
         "messageKeys": [],
         "projectType": "native",
@@ -19,8 +23,57 @@
                     "type": "font"
                 },
                 {
+                    "file": "images/snow.png",
+                    "name": "IMAGE_WEATHER_SNOW",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/sun.png",
+                    "name": "IMAGE_WEATHER_SUN",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/wind.png",
+                    "name": "IMAGE_WEATHER_WIND",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/rain.png",
+                    "name": "IMAGE_WEATHER_RAIN",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/festival.png",
+                    "name": "IMAGE_BADGE_FESTIVAL",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/thunder.png",
+                    "name": "IMAGE_WEATHER_THUNDER",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/icon.png",
+                    "menuIcon": true,
+                    "name": "IMAGE_WATCFACE_ICON",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
                     "file": "images/background.png",
                     "name": "IMAGE_BACKGROUND",
+                    "targetPlatforms": null,
+                    "type": "bitmap"
+                },
+                {
+                    "file": "images/error.png",
+                    "name": "IMAGE_WEATHER_ERROR",
                     "targetPlatforms": null,
                     "type": "bitmap"
                 },
@@ -64,13 +117,7 @@
         },
         "sdkVersion": "3",
         "targetPlatforms": [
-            "aplite",
-            "basalt",
-            "chalk",
-            "diorite",
-            "emery",
-            "flint",
-            "gabbro"
+            "emery"
         ],
         "uuid": "1b3ab5dd-0dd0-423d-9c00-4006a6d5691b",
         "watchapp": {
