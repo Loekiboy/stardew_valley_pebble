@@ -90,6 +90,12 @@
                     "type": "bitmap"
                 },
                 {
+                    "file": "fonts/Stardew_Valley.ttf",
+                    "name": "FONT_STEPS_28",
+                    "targetPlatforms": null,
+                    "type": "font"
+                },
+                {
                     "file": "images/winter.png",
                     "name": "IMAGE_SEASON_WINTER",
                     "targetPlatforms": null,

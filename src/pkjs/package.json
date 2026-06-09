@@ -16,6 +16,9 @@
     },
     "appKeys": {
       "WEATHER_KEY": 0
-    }
+    },
+    "capabilities": [
+      "health"
+    ]
   }
 }
