@@ -276,7 +276,7 @@ static void main_window_load(Window *window) {
   layer_add_child(window_layer, bitmap_layer_get_layer(s_weather_layer));
 
   // Standaard error-afbeelding zolang er geen weerdata is ontvangen
-  s_weather_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_WEATHER_ERROR);
+  s_weather_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_WEATHER_SUN);
   bitmap_layer_set_bitmap(s_weather_layer, s_weather_bitmap);
 
   // 4. Festival laag
