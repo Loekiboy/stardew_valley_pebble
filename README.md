@@ -8,7 +8,7 @@ The watch face includes:
 - The date
 - The number of steps you have taken (the counter below)
 - A dial that shows whether it is day or night
-- The weather (I could not test this on a real watch)
+- The weather (verified working in the emulator, not yet tested on physical hardware)
 - The current season
 
 I hope you enjoy using it!

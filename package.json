@@ -12,7 +12,9 @@
         ],
         "displayName": "Stardew Valley Watchface",
         "enableMultiJS": true,
-        "messageKeys": [],
+        "messageKeys": [
+            "WEATHER_KEY"
+        ],
         "projectType": "native",
         "resources": {
             "media": [
