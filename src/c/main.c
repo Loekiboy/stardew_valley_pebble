@@ -1,7 +1,5 @@
 #include <pebble.h>
 
-#define WEATHER_KEY 0
-
 static Window *s_main_window;
 static TextLayer *s_time_layer;
 static TextLayer *s_date_layer;
@@ -210,7 +208,7 @@ static void update_time() {
 
 // Callback wanneer het weer via de telefoon binnenkomt
 static void inbox_received_callback(DictionaryIterator *iterator, void *context) {
-  Tuple *weather_tuple = dict_find(iterator, WEATHER_KEY);
+  Tuple *weather_tuple = dict_find(iterator, MESSAGE_KEY_WEATHER_KEY);
   if (weather_tuple) {
     int received_weather = weather_tuple->value->int32;
 
@@ -241,7 +239,7 @@ static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
     DictionaryIterator *iter;
     app_message_outbox_begin(&iter);
     if (iter != NULL) {
-      dict_write_uint8(iter, 0, 0);
+      dict_write_uint8(iter, MESSAGE_KEY_WEATHER_KEY, 0);
       app_message_outbox_send();
     }
   }
